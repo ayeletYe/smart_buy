@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.yaeli.smart_buy.aboutUsActivity">
+
+    <TextView
+        android:text="The application deals with providing a healthy and proper life span in terms of nutrition. The purpose of the application is to give the user an understanding of the quality of the products by comparing the nutritional values of products from different categories and presenting them to the user in a gradual manner. In addition, each user can review recipes according to a basket of products that he makes for himself, And monitor the personal BMI index. "
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textView2"
+        android:textSize="20sp"
+        android:textStyle="normal|italic"
+        android:fontFamily="serif"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+</RelativeLayout>

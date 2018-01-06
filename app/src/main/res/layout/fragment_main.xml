@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    tools:context="com.example.yaeli.smart_buy.MainFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Find Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:id="@+id/findUs"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="monospace" />
+
+    <Button
+        android:text="compare products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/compare"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:text="View Recipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recipes"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="monospace"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:text="About Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:id="@+id/aboutUs"
+        android:textSize="20sp"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="monospace"
+        android:layout_marginRight="15dp"
+        android:textStyle="normal|bold" />
+
+</FrameLayout>

@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    tools:context="com.example.yaeli.smart_buy.signin_btnFragment"
+    android:id="@+id/signin_btn">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="CLICK HERE TO SIGN IN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_btn"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorPrimaryDark" />
+</FrameLayout>

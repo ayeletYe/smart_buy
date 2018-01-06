@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "398638893233",
+    "firebase_url": "https://smartbuy-3e990.firebaseio.com",
+    "project_id": "smartbuy-3e990",
+    "storage_bucket": "smartbuy-3e990.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398638893233:android:37eaaf2d33dc4fd8",
+        "android_client_info": {
+          "package_name": "com.example.yaeli.smart_buy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398638893233-ifk0n130g8j690cagv2nt04ibotb788m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByHYNYx5frbq2V3wWHoVdYOd0JpLQdNR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
