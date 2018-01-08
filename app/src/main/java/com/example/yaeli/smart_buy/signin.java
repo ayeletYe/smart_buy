@@ -102,7 +102,7 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     for(DataSnapshot _user:dataSnapshot.child("users").getChildren()){
-                        Toast.makeText(signin.this, _user.getKey(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(signin.this, _user.getKey(), Toast.LENGTH_LONG).show();
                         if(_user.getKey().equals(name))
                             userExist=true;
                             break;
@@ -128,7 +128,6 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                                     User user = new User(Email.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), city.getText().toString());
                                     //mDatabase.push().getKey();
                                     mDatabase.child("users").child(userName.getText().toString()).setValue(user);
-
                                     Toast.makeText(signin.this, "Registered successfully", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent("com.example.yaeli.smart_buy.Photo");
                                     intent.putExtra("userName",userName.getText().toString());

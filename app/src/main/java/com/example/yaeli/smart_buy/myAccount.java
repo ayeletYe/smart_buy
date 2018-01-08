@@ -1,15 +1,22 @@
 package com.example.yaeli.smart_buy;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
 
 public class myAccount extends AppCompatActivity {
     TextView firstName;
@@ -20,6 +27,7 @@ public class myAccount extends AppCompatActivity {
     ImageView img;
     DatabaseReference database;
     private String userName;
+    StorageReference storage;
 
 
     @Override
@@ -33,6 +41,7 @@ public class myAccount extends AppCompatActivity {
         Email=(TextView) findViewById(R.id.email);
         img=(ImageView) findViewById(R.id.pic);
 
+        storage= FirebaseStorage.getInstance().getReference();
         userName=getIntent().getExtras().get("userName").toString();
         database=FirebaseDatabase.getInstance().getReference();
         database.addValueEventListener(new ValueEventListener() {
@@ -54,6 +63,14 @@ public class myAccount extends AppCompatActivity {
 
             }
         });
+
+        StorageReference photoRef=storage.child("Photos").child(userName).child("photo.jpg");
+        Glide.with(this).using(new FirebaseImageLoader()).load(photoRef).into(img);
+        //Uri file=Uri.fromFile(new File(photoRef.getPath()));
+        //img.setImageURI(file);
+
+
+
 
 
 

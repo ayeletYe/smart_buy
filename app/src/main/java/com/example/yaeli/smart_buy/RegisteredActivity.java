@@ -43,6 +43,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
 
                     if(d.child("Email").getValue().toString().equals(email)){
                         hello.setText("Hello "+d.getKey());
+                        userName=d.getKey();
                     }
                 }
             }
@@ -69,8 +70,9 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
         switch(v.getId()){
             case(R.id.hello):
                 Intent intent= new Intent("com.example.yaeli.smart_buy.myAccount");
-                int len=hello.length();
-                intent.putExtra("userName",hello.getText().subSequence(6,len));
+                //int len=hello.length();
+                //intent.putExtra("userName",hello.getText().subSequence(6,len));
+                intent.putExtra("userName",userName);
                 startActivity(intent);
                 break;
 
