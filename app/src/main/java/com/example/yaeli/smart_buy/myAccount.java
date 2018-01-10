@@ -64,7 +64,7 @@ public class myAccount extends AppCompatActivity {
             }
         });
 
-        StorageReference photoRef=storage.child("Photos").child(userName).child("photo.jpg");
+        StorageReference photoRef=storage.child("Photos").child(userName + ".jpg");
         Glide.with(this).using(new FirebaseImageLoader()).load(photoRef).into(img);
         //Uri file=Uri.fromFile(new File(photoRef.getPath()));
         //img.setImageURI(file);

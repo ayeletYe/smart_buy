@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -91,7 +92,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
 
             case(R.id.submit):
                 if(pic_location!=null){
-                    StorageReference filepath = mStorage.child("Photos").child(userName).child(pic_location.getLastPathSegment());
+                    StorageReference filepath = mStorage.child("Photos").child(userName + ".jpg");
                     filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
