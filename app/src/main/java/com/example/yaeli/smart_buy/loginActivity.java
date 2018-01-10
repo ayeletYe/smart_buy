@@ -90,7 +90,10 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                         }
                         else{
                             //Toast.makeText(loginActivity.this,"Failed to signed in",Toast.LENGTH_LONG);
+
+                            System.out.println(task.getException());
                             msg_login.setText("Incorrect user name or password");
+                            progressDialog.dismiss();
                         }
 
 
