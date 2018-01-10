@@ -31,7 +31,7 @@ else:
     print_help()
 
 cred = credentials.Certificate("smartbuy-adminsdk.json")
-firebase_admin.initialize_app(cred, {'databaseURL': 'https://smartbuy-bf734.firebaseio.com/'})
+firebase_admin.initialize_app(cred, {'databaseURL': 'https://smartbuy-3e990.firebaseio.com/'})
 
 ref = db.reference('users')
 
