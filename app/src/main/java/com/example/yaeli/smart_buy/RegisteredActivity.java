@@ -77,6 +77,8 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case(R.id.logout):
+                FirebaseAuth.getInstance().signOut();
+
                 Intent intent1= new Intent("com.example.yaeli.smart_buy.MainActivity");
                 startActivity(intent1);
                 break;
