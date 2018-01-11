@@ -47,6 +47,8 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
     private ProgressDialog mProgress;
     private StorageReference mStorage;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,8 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         mStorage= FirebaseStorage.getInstance().getReference();
         userName=getIntent().getExtras().get("userName").toString();
         mProgress=new ProgressDialog(this);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     @Override
@@ -100,6 +104,13 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
                         }
                     });
 
+                    /**
+                     * Log event of user added photo
+                     */
+                    Bundle bundle = new Bundle();
+                    bundle.putString("username", userName);
+                    bundle.putString("url", filepath.getPath());
+                    mFirebaseAnalytics.logEvent("photo_added", bundle);
                 }
                 else{
                     Toast.makeText(Photo.this, "No picture was selected", Toast.LENGTH_SHORT).show();

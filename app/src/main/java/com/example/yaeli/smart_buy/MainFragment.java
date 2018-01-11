@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +22,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
     TextView recipes;
     Button products;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public MainFragment() {
         // Required empty public constructor
@@ -40,33 +43,43 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
         recipes.setOnClickListener(this);
         products.setOnClickListener(this);
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this.getActivity());
+
         return myView;
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = null;
+        String content;
+
         switch(v.getId()){
             case(R.id.aboutUs):
-                Intent intent=new Intent("com.example.yaeli.smart_buy.aboutUsActivity");
-                startActivity(intent);
+                intent = new Intent("com.example.yaeli.smart_buy.aboutUsActivity");
                 break;
 
             case(R.id.findUs):
-                Intent intent1=new Intent("com.example.yaeli.smart_buy.MapsActivity");
-                startActivity(intent1);
+                intent = new Intent("com.example.yaeli.smart_buy.MapsActivity");
                 break;
 
             case(R.id.recipes):
-                Intent intent2=new Intent("com.example.yaeli.smart_buy.recipesActivity");
-                startActivity(intent2);
+                intent = new Intent("com.example.yaeli.smart_buy.recipesActivity");
                 break;
 
             case(R.id.compare):
-                Intent intent3=new Intent("com.example.yaeli.smart_buy.ProductsActivity");
-                startActivity(intent3);
+                intent = new Intent("com.example.yaeli.smart_buy.ProductsActivity");
                 break;
-
         }
 
+        if (intent != null) {
+            /**
+             * Log event of content select
+             */
+            Bundle bundle = new Bundle();
+            bundle.putString(FirebaseAnalytics.Param.CONTENT, intent.getAction());
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+            startActivity(intent);
+        }
     }
 }
