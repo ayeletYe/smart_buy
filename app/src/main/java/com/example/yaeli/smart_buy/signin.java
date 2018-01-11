@@ -59,7 +59,7 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
         msg= (TextView) findViewById(R.id.msg);
         //userLocalStore=new UserLocalStore(this);
         nextBtn.setOnClickListener(this);
-        userExist=false;
+        //userExist=false;
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -95,28 +95,28 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                 }
             }
 
-            final String name=userName.getText().toString();
-            mDatabase.addValueEventListener(new ValueEventListener() {
+//            final String name=userName.getText().toString();
+//            mDatabase.addValueEventListener(new ValueEventListener() {
+//
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                    for(DataSnapshot _user:dataSnapshot.child("users").getChildren()){
+//                        //Toast.makeText(signin.this, _user.getKey(), Toast.LENGTH_LONG).show();
+//                        if(_user.getKey().equals(name))
+//                            userExist=true;
+//                            break;
+//                    }
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(DatabaseError databaseError) {
+//                    Toast.makeText(signin.this, "Failed to read value", Toast.LENGTH_LONG).show();
+//                }
+//            });
 
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                    for(DataSnapshot _user:dataSnapshot.child("users").getChildren()){
-                        Toast.makeText(signin.this, _user.getKey(), Toast.LENGTH_LONG).show();
-                        if(_user.getKey().equals(name))
-                            userExist=true;
-                            break;
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(signin.this, "Failed to read value", Toast.LENGTH_LONG).show();
-                }
-            });
-
-            if(!userExist) {
+            //if(!userExist) {
 
                 final ProgressDialog progressDialog = ProgressDialog.show(signin.this, "Please wait", "Registering...", true);
                 (firebaseAuth.createUserWithEmailAndPassword(email, pass))
@@ -125,13 +125,12 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    User user = new User(Email.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), city.getText().toString());
-                                    //mDatabase.push().getKey();
-                                    mDatabase.child("users").child(userName.getText().toString()).setValue(user);
-
+                                    User user = new User(false,Email.getText().toString(),userName.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), city.getText().toString());
+                                    String userId=mDatabase.push().getKey();
+                                    mDatabase.child("users").child(userId).setValue(user);
                                     Toast.makeText(signin.this, "Registered successfully", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent("com.example.yaeli.smart_buy.Photo");
-                                    intent.putExtra("userName",userName.getText().toString());
+                                    intent.putExtra("userId",userId);
                                     startActivity(intent);
                                 } else {
                                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
@@ -141,10 +140,10 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                                 }
                             }
                         });
-            }
-            else{
-                msg.setText("user name already exist!");
-            }
+//            }
+//            else{
+//                msg.setText("user name already exist!");
+//            }
 
         }
 

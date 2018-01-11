@@ -17,6 +17,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class loginActivity extends AppCompatActivity implements View.OnClickListener{
     private static Button login;
@@ -24,6 +29,8 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     private static EditText password;
     public static TextView msg_login;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
+    //boolean isAdmin=false;
 
 
     @Override
@@ -37,6 +44,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
         msg_login.setText("Please Login your account");
         login.setOnClickListener(this);
         firebaseAuth=FirebaseAuth.getInstance();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
     }
 
 
@@ -44,22 +52,50 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
+        //final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
         (firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
                         if(task.isSuccessful()){
                             Toast.makeText(loginActivity.this,"Successfuly signed in",Toast.LENGTH_LONG);
-                            Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
-                            intent.putExtra("Email",firebaseAuth.getCurrentUser().getEmail().toString());
-                            startActivity(intent);
+                            databaseReference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
+                                        if(d.child("Email").getValue().toString().equals(email.getText().toString())) {
+                                            if (d.child("isAdmin").getValue().toString().equals("true")) {
+                                                //isAdmin = true;
+                                                Intent intent = new Intent("com.example.yaeli.smart_buy.managerActivity");
+                                                intent.putExtra("Email", email.getText().toString());
+                                                startActivity(intent);
+
+                                            }
+                                            else{
+                                                Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
+                                                intent.putExtra("Email", email.getText().toString());
+                                                startActivity(intent);
+                                            }
+                                        }
+
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+
+                                }
+                            });
+
                         }
                         else{
-                            Toast.makeText(loginActivity.this,"Failed to signed in",Toast.LENGTH_LONG);
+                            //Toast.makeText(loginActivity.this,"Failed to signed in",Toast.LENGTH_LONG);
+                            msg_login.setText("Incorrect user name or password");
                         }
-                        msg_login.setText("Incorrect user name or password");
+
+
 
                     }
                 });

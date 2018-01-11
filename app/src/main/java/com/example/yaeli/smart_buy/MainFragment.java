@@ -57,7 +57,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
                 break;
 
             case(R.id.recipes):
-                Intent intent2=new Intent("com.example.yaeli.smart_buy.rescipesActivity");
+                Intent intent2=new Intent("com.example.yaeli.smart_buy.recipesActivity");
                 startActivity(intent2);
                 break;
 
