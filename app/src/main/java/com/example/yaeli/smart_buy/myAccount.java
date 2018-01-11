@@ -1,6 +1,9 @@
 package com.example.yaeli.smart_buy;
 
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +21,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+<<<<<<< HEAD
+=======
+
+import java.io.File;
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
 import java.io.File;
 
@@ -29,6 +37,7 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
     TextView Email;
     ImageView img;
     DatabaseReference database;
+<<<<<<< HEAD
     private String email;
     StorageReference storage;
     String userId;
@@ -36,6 +45,10 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
     String photo;
     TextView msg;
     TextView upload;
+=======
+    private String userName;
+    StorageReference storage;
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
 
     @Override
@@ -51,9 +64,14 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
         msg=(TextView) findViewById(R.id.msg);
         upload=(TextView) findViewById(R.id.upload);
 
+<<<<<<< HEAD
         upload.setOnClickListener(this);
         storage= FirebaseStorage.getInstance().getReference();
         email=getIntent().getExtras().get("Email").toString();
+=======
+        storage= FirebaseStorage.getInstance().getReference();
+        userName=getIntent().getExtras().get("userName").toString();
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
         database=FirebaseDatabase.getInstance().getReference();
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,6 +109,7 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
             }
         });
 
+<<<<<<< HEAD
     }
 
     @Override
@@ -109,6 +128,16 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
                     intent.putExtra("userId",userId);
                     startActivity(intent);
                 }
+=======
+        StorageReference photoRef=storage.child("Photos").child(userName).child("photo.jpg");
+        Glide.with(this).using(new FirebaseImageLoader()).load(photoRef).into(img);
+        //Uri file=Uri.fromFile(new File(photoRef.getPath()));
+        //img.setImageURI(file);
+
+
+
+
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
             }
 

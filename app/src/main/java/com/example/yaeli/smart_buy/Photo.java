@@ -44,7 +44,11 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
     Button camera;
     private File imageFile;
     public Uri pic_location=null;
+<<<<<<< HEAD
     private String userId;
+=======
+    private String userName;
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
     private ProgressDialog mProgress;
     private StorageReference mStorage;
     private DatabaseReference databaseReference;
@@ -96,13 +100,21 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case(R.id.submit):
+<<<<<<< HEAD
                 if(pic_location!=null && isPic==true){
                     StorageReference filepath = mStorage.child("Photos").child(userId).child(pic_location.getLastPathSegment());
+=======
+                if(pic_location!=null){
+                    StorageReference filepath = mStorage.child("Photos").child(userName).child(pic_location.getLastPathSegment());
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                     filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Toast.makeText(Photo.this, "Upload done", Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
                             databaseReference.child("users").child(userId).child("photo").setValue(true);
+=======
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                         }
                     });
 
@@ -125,7 +137,10 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
             pic_location = data.getData();
+<<<<<<< HEAD
             isPic=true;
+=======
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
             //StorageReference filepath = mStorage.child("Photos").child(pic_location.getLastPathSegment());
            // mProgress.setMessage("Uploading image...");
             //mProgress.show();
@@ -155,7 +170,10 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         else if (requestCode == CAMERA_REQUEST) {
 
             if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+<<<<<<< HEAD
                 isPic=true;
+=======
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
                 //Uri uri = data.getData();
                 //Bitmap photo = (Bitmap) data.getExtras().get("data");
