@@ -10,10 +10,10 @@ def print_help():
     print ("    --list")
     print
     print ("    Add a new user")
-    print ("    --add <email> <password> <username> <first_name> <last_name> <city> [street]")
+    print ("    --add <email> <password> <is_admin_0/1> <username> <first_name> <last_name> <city> [street]")
     print
     print ("    Delete existing user")
-    print ("    --delete <email> <username>")
+    print ("    --delete <email>")
     sys.exit(1)
 
 operation = None
@@ -23,9 +23,9 @@ if len(sys.argv) < 2:
 
 if sys.argv[1] == "--list":
     operation = "list"
-elif sys.argv[1] == "--add" and len(sys.argv) >= 8:
+elif sys.argv[1] == "--add" and len(sys.argv) >= 9:
     operation = "add"
-elif sys.argv[1] == "--delete" and len(sys.argv) == 4:
+elif sys.argv[1] == "--delete" and len(sys.argv) == 3:
     operation = "delete"
 else:
     print_help()
@@ -36,61 +36,71 @@ firebase_admin.initialize_app(cred, {'databaseURL': 'https://smartbuy-3e990.fire
 ref = db.reference('users')
 
 if operation == "list":
-    for username, user in ref.get().items():
-        print("--   Username:   " + username)
-        print("     Email:      " + user['Email'])
+    for uid, user in ref.get().items():
+        print("--   Email:      " + user['email'])
+        print("     Username:   " + user['userName'])
         print("     First Name: " + user['firstName'])
         print("     Last Name:  " + user['lastName'])
         print("     Address:    " + user['address'])
         print("     City:       " + user['city'])
+        print("     isAdmin:    " + str(user['admin']))
+        print("     isPhoto:    " + str(user['photo']))
         print
 
 if operation == 'add':
-    # <email> <password> <username> <first_name> <last_name> <city> [street]
+    # <email> <password> <is_admin> <username> <first_name> <last_name> <city> [street]
     email = sys.argv[2]
     password = sys.argv[3]
-    username = sys.argv[4]
-    first_name = sys.argv[5]
-    last_name = sys.argv[6]
-    city = sys.argv[7]
+    is_admin = sys.argv[4] == "1"
+    username = sys.argv[5]
+    first_name = sys.argv[6]
+    last_name = sys.argv[7]
+    city = sys.argv[8]
 
-    if len(sys.argv) > 8:
-        street = sys.argv[8]
+    if len(sys.argv) > 9:
+        street = sys.argv[9]
     else:
         street = '*UNKNOWN*'
 
-    # check if username exists
-    if username in ref.get():
-        print("Username '" + username + "' is already registered!")
+    # register to Auth
+    try:
+        user = auth.create_user(email=email, password=password)
+    except Exception as e:
+        print ("Failed to add user!")
+        print (e)
         sys.exit(1)
 
-    # register to Auth
-    auth.create_user(email=email, password=password)
+    uid = user.uid
 
     # Save into database
     ref.update({
-        username: {
-            'Email': email,
-            'address': street,
-            'city': city,
+        uid: {
+            'email': email,
+            'admin': is_admin,
+            'userName': username,
             'firstName': first_name,
-            'lastName': last_name
+            'lastName': last_name,
+            'city': city,
+            'address': street,
+            'photo': False,
         }
     })
 
 if operation == 'delete':
-    # <email> <username>
+    # <email>
     email = sys.argv[2]
-    username = sys.argv[3]
 
-    # check if username exists
-    if username not in ref.get():
-        print("Username '" + username + "' doesn't exist!")
+    # Get user from Auth
+    try:
+        user = auth.get_user_by_email(email)
+    except Exception as e:
+        print ("Failed to get user!")
+        print (e)
         sys.exit(1)
 
-    # Delete from Auth by email
-    user = auth.get_user_by_email(email)
+    # Delete from DB
+    ref.child(user.uid).delete()
+
+    # Delete from Auth
     auth.delete_user(user.uid)
 
-    # Delete from DB
-    ref.child(username).delete()
