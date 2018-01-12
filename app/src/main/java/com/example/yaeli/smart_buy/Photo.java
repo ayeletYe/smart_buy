@@ -116,7 +116,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
                      * Log event of user added photo
                      */
                     Bundle bundle = new Bundle();
-                    bundle.putString("username", userName);
+//                    bundle.putString("username", userName);
                     bundle.putString("url", filepath.getPath());
                     mFirebaseAnalytics.logEvent("photo_added", bundle);
                 }

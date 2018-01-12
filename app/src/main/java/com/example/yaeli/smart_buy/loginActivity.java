@@ -30,12 +30,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     public static TextView msg_login;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-<<<<<<< HEAD
     //boolean isAdmin=false;
-=======
-    boolean isAdmin=false;
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +51,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        //final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
+        final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
         (firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -66,7 +61,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                             databaseReference.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-<<<<<<< HEAD
                                     for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
                                         if(d.child("Email").getValue().toString().equals(email.getText().toString())) {
                                             if (d.child("isAdmin").getValue().toString().equals("true")) {
@@ -84,23 +78,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                                         }
 
                                     }
-=======
-                                    for(DataSnapshot d:dataSnapshot.child("admin").getChildren()){
-                                        if(d.child("Email").getValue().equals(email.getText().toString())){
-                                            isAdmin=true;
-                                            Intent intent=new Intent("com.example.yaeli.smart_buy.managerActivity");
-                                            intent.putExtra("Email",email.getText().toString());
-                                            startActivity(intent);
-
-                                        }
-
-                                    }
-                                    if(!isAdmin){
-                                        Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
-                                        intent.putExtra("Email",email.getText().toString());
-                                        startActivity(intent);
-                                    }
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
                                 }
 

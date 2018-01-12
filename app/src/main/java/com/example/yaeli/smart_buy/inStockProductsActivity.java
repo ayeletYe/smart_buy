@@ -2,14 +2,6 @@ package com.example.yaeli.smart_buy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-public class inStockProductsActivity extends AppCompatActivity {
-    DatabaseReference databaseReference;
-=======
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -27,16 +19,12 @@ public class inStockProductsActivity extends AppCompatActivity {
     private ListView mListView;
     private ArrayList<String> mProductsInStock;
 
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_stock_products);
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
-<<<<<<< HEAD
-
-=======
         mProductsInStock = new ArrayList<>();
 
         mListView = (ListView) findViewById(R.id.listViewStock);
@@ -71,7 +59,6 @@ public class inStockProductsActivity extends AppCompatActivity {
 
             }
         });
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 
     }
 }

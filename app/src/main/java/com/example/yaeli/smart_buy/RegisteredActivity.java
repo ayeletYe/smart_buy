@@ -42,13 +42,8 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                 for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
 
                     if(d.child("Email").getValue().toString().equals(email)){
-<<<<<<< HEAD
                         userName=d.child("userName").getValue().toString();
                         hello.setText("Hello "+userName);
-=======
-                        hello.setText("Hello "+d.getKey());
-                        userName=d.getKey();
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                     }
                 }
             }
@@ -77,11 +72,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                 Intent intent= new Intent("com.example.yaeli.smart_buy.myAccount");
                 //int len=hello.length();
                 //intent.putExtra("userName",hello.getText().subSequence(6,len));
-<<<<<<< HEAD
                 intent.putExtra("Email",email);
-=======
-                intent.putExtra("userName",userName);
->>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                 startActivity(intent);
                 break;
 
