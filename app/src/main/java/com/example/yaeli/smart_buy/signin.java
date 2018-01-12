@@ -42,8 +42,6 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
     private DatabaseReference mDatabase;
     private static Button nextBtn;
 
-    //public static UserLocalStore userLocalStore=null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +55,7 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
         city= (EditText) findViewById(R.id.city);
         Email= (EditText) findViewById(R.id.Email);
         msg= (TextView) findViewById(R.id.msg);
-        //userLocalStore=new UserLocalStore(this);
         nextBtn.setOnClickListener(this);
-        //userExist=false;
 
         firebaseAuth=FirebaseAuth.getInstance();
 
