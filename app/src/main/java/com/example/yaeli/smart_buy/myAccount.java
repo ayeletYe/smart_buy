@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,13 +29,13 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
     TextView city;
     TextView Email;
     ImageView img;
-    DatabaseReference database;
 
-    private String email;
+    DatabaseReference database;
     StorageReference storage;
+
     String userId;
-    //boolean isAdmin=false;
-    String photo;
+    User user;
+
     TextView msg;
     TextView upload;
 
@@ -54,36 +55,27 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
 
         upload.setOnClickListener(this);
         storage= FirebaseStorage.getInstance().getReference();
-        email=getIntent().getExtras().get("Email").toString();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         database=FirebaseDatabase.getInstance().getReference();
-        database.addValueEventListener(new ValueEventListener() {
+
+        database.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
-                    if(d.child("Email").getValue().equals(email)){
-                        firstName.setText("First Name: "+d.child("firstName").getValue().toString());
-                        lastName.setText("Last Name: "+d.child("lastName").getValue().toString());
-                        street.setText("Street: "+d.child("address").getValue().toString());
-                        city.setText("City: "+d.child("city").getValue().toString());
-                        Email.setText("Email: "+d.child("Email").getValue().toString());
-                        userId=d.getKey();
-                        photo=d.child("photo").getValue().toString();
-//                        if(d.child("isAdmin").getValue().toString().equals("true")){
-//                            //Toast.makeText(myAccount.this,"hello",Toast.LENGTH_LONG).show();
-//                            isAdmin=true;
-//                        }
+                user = dataSnapshot.getValue(User.class);
 
-                        if(photo.equals("true")){
-                            StorageReference photoRef=storage.child("Photos").child(userId).child("photo.jpg");
-                            Glide.with(myAccount.this).using(new FirebaseImageLoader()).load(photoRef).into(img);
-                        }
-                        else{
-                            msg.setText("you don't have a photo");
-                            upload.setText("Click here to upload");
-                        }
-                    }
+                firstName.setText("First Name: " + user.getFirstName());
+                lastName.setText("Last Name: " + user.getLastName());
+                street.setText("Street: " + user.getAddress());
+                city.setText("City: " + user.getCity());
+                Email.setText("Email: " + user.getEmail());
+
+                if (user.isPhoto()) {
+                    StorageReference photoRef = storage.child("Photos").child(userId).child("photo.jpg");
+                    Glide.with(myAccount.this).using(new FirebaseImageLoader()).load(photoRef).into(img);
+                } else {
+                    msg.setText("you don't have a photo");
+                    upload.setText("Click here to upload");
                 }
-
             }
 
             @Override
@@ -96,28 +88,9 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
-                    if(d.child("Email").getValue().toString().equals(email)){
-                        photo=d.child("photo").getValue().toString();
-                        userId=d.getKey();
-                    }
-                }
-                if(photo.equals("false")){
-                    Intent intent=new Intent("com.example.yaeli.smart_buy.Photo");
-                    intent.putExtra("userId",userId);
-                    startActivity(intent);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        if (!user.isPhoto()) {
+            Intent intent = new Intent("com.example.yaeli.smart_buy.Photo");
+            startActivity(intent);
+        }
     }
 }

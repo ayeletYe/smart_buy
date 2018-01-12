@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +20,7 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
     Button products;
     Button recipes;
     Button users;
-    String email;
-    String userName;
+    String userId;
     DatabaseReference mDatabase;
 
 
@@ -31,25 +31,20 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
         msg=(TextView) findViewById(R.id.msg);
         products=(Button) findViewById(R.id.products);
         recipes=(Button) findViewById(R.id.recipe);
-        //msg.setText("Hello manager "+getIntent().getExtras().getString("userName"));
 
         products.setOnClickListener(this);
         recipes.setOnClickListener(this);
         msg.setOnClickListener(this);
 
+        userId= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        email=getIntent().getExtras().get("Email").toString();
         mDatabase= FirebaseDatabase.getInstance().getReference();
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
+                User user = dataSnapshot.getValue(User.class);
 
-                    if(d.child("Email").getValue().toString().equals(email)){
-                        userName=d.child("userName").getValue().toString();
-                        msg.setText("Hello Manager "+userName);
-                    }
-                }
+                msg.setText("Hello Manager "+user.getUserName());
             }
 
             @Override
@@ -77,7 +72,6 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
 
             case(R.id.msg):
                 Intent intent2=new Intent("com.example.yaeli.smart_buy.myAccount");
-                intent2.putExtra("Email",email);
                 startActivity(intent2);
 
 

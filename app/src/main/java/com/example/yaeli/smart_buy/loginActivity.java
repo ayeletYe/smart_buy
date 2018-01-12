@@ -56,35 +56,31 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
+
                         if(task.isSuccessful()){
-                            Toast.makeText(loginActivity.this,"Successfuly signed in",Toast.LENGTH_LONG);
-                            databaseReference.addValueEventListener(new ValueEventListener() {
+                            String userId = task.getResult().getUser().getUid();
+
+                            Toast.makeText(loginActivity.this,"Successfully signed in",Toast.LENGTH_LONG);
+
+                            databaseReference.child("users").child(userId).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
-                                        if(d.child("Email").getValue().toString().equals(email.getText().toString())) {
-                                            if (d.child("isAdmin").getValue().toString().equals("true")) {
-                                                //isAdmin = true;
-                                                Intent intent = new Intent("com.example.yaeli.smart_buy.managerActivity");
-                                                intent.putExtra("Email", email.getText().toString());
-                                                startActivity(intent);
+                                    User user = dataSnapshot.getValue(User.class);
 
-                                            }
-                                            else{
-                                                Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
-                                                intent.putExtra("Email", email.getText().toString());
-                                                startActivity(intent);
-                                            }
-                                        }
+                                    if (user.isAdmin()) {
+                                        Intent intent = new Intent("com.example.yaeli.smart_buy.managerActivity");
+                                        startActivity(intent);
 
                                     }
-
+                                    else{
+                                        Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
+                                        startActivity(intent);
+                                    }
                                 }
 
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
-
-
                                 }
                             });
 
@@ -94,10 +90,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
                             System.out.println(task.getException());
                             msg_login.setText("Incorrect user name or password");
-                            progressDialog.dismiss();
                         }
-
-
 
                     }
                 });

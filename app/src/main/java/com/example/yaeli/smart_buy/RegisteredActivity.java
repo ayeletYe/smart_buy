@@ -25,8 +25,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
     private static Spinner spinner;
     private static Button logout;
     private DatabaseReference mDatabase;
-    public String email;
-    public String userName;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +33,16 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_registered);
         hello=(TextView) findViewById(R.id.hello);
         logout=(Button) findViewById(R.id.logout);
-        email=getIntent().getExtras().get("Email").toString();
+
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         mDatabase= FirebaseDatabase.getInstance().getReference();
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
+                User user = dataSnapshot.getValue(User.class);
 
-                    if(d.child("Email").getValue().toString().equals(email)){
-                        userName=d.child("userName").getValue().toString();
-                        hello.setText("Hello "+userName);
-                    }
-                }
+                hello.setText("Hello "+user.getUserName());
             }
 
             @Override
@@ -70,9 +67,6 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
         switch(v.getId()){
             case(R.id.hello):
                 Intent intent= new Intent("com.example.yaeli.smart_buy.myAccount");
-                //int len=hello.length();
-                //intent.putExtra("userName",hello.getText().subSequence(6,len));
-                intent.putExtra("Email",email);
                 startActivity(intent);
                 break;
 
