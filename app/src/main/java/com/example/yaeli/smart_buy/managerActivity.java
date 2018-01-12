@@ -43,11 +43,19 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+<<<<<<< HEAD
+                for(DataSnapshot d:dataSnapshot.child("users").getChildren()){
+
+                    if(d.child("Email").getValue().toString().equals(email)){
+                        userName=d.child("userName").getValue().toString();
+                        msg.setText("Hello Manager "+userName);
+=======
                 for(DataSnapshot d:dataSnapshot.child("admin").getChildren()){
 
                     if(d.child("Email").getValue().toString().equals(email)){
                         msg.setText("Hello Manager "+d.getKey());
                         userName=d.getKey();
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                     }
                 }
             }
@@ -77,7 +85,11 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
 
             case(R.id.msg):
                 Intent intent2=new Intent("com.example.yaeli.smart_buy.myAccount");
+<<<<<<< HEAD
+                intent2.putExtra("Email",email);
+=======
                 intent2.putExtra("userName",userName);
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
                 startActivity(intent2);
 
 

@@ -10,6 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.yaeli.smart_buy.inStockProductsActivity">
 
+<<<<<<< HEAD
+=======
     <ListView
         android:id="@+id/listViewStock"
         android:layout_width="match_parent"
@@ -17,4 +19,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
+>>>>>>> ecd261c4e308c2f460db46a6c464c06ced5b33fd
 </RelativeLayout>

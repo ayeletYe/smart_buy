@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -43,9 +45,11 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
     Button camera;
     private File imageFile;
     public Uri pic_location=null;
-    private String userName;
+    private String userId;
     private ProgressDialog mProgress;
     private StorageReference mStorage;
+    private DatabaseReference databaseReference;
+    boolean isPic;
 
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -61,10 +65,12 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         uploadBtn.setOnClickListener(this);
         camera.setOnClickListener(this);
         submit.setOnClickListener(this);
+        isPic=false;
 
         //storage=FirebaseStorage.getInstance();
         mStorage= FirebaseStorage.getInstance().getReference();
-        userName=getIntent().getExtras().get("userName").toString();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+        userId=getIntent().getExtras().get("userId").toString();
         mProgress=new ProgressDialog(this);
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -95,12 +101,14 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case(R.id.submit):
-                if(pic_location!=null){
-                    StorageReference filepath = mStorage.child("Photos").child(userName + ".jpg");
+                if(pic_location!=null && isPic==true){
+                    StorageReference filepath = mStorage.child("Photos").child(userId).child(pic_location.getLastPathSegment());
+
                     filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Toast.makeText(Photo.this, "Upload done", Toast.LENGTH_LONG).show();
+                            databaseReference.child("users").child(userId).child("photo").setValue(true);
                         }
                     });
 
@@ -130,6 +138,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
             pic_location = data.getData();
+            isPic=true;
             //StorageReference filepath = mStorage.child("Photos").child(pic_location.getLastPathSegment());
            // mProgress.setMessage("Uploading image...");
             //mProgress.show();
@@ -159,6 +168,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         else if (requestCode == CAMERA_REQUEST) {
 
             if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+                isPic=true;
 
                 //Uri uri = data.getData();
                 //Bitmap photo = (Bitmap) data.getExtras().get("data");
