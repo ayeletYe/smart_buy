@@ -1,5 +1,7 @@
 package com.example.yaeli.smart_buy;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -54,6 +56,14 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        if (email.getText().toString().equals("")) {
+            email.setText(" ");
+        }
+
+        if (password.getText().toString().equals("")) {
+            password.setText(" ");
+        }
+
         /* On click immediately show progress dialog */
         final ProgressDialog progressDialog = ProgressDialog.show(loginActivity.this, "Please wait", "Checking Authentication...", true);
 
@@ -103,6 +113,13 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                         else{
                             /* Show error message in box on top of the screen */
                             msg_login.setText("Incorrect user name or password");
+
+                            /* Setup "Signin" fragment */
+                            FragmentManager fragmentManager = getFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            signin_btnFragment mf = new signin_btnFragment();
+                            fragmentTransaction.add(R.id.signin_btnFragment, mf);
+                            fragmentTransaction.commit();
                         }
                     }
                 });

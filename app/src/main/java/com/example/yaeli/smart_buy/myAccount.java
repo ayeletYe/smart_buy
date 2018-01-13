@@ -81,7 +81,7 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
                 if (user.isPhoto()) {
                     /* Show user photo using Glide */
                     StorageReference photoRef = storage.child("Photos").child(userId).child("photo.jpg");
-                    Glide.with(myAccount.this).using(new FirebaseImageLoader()).load(photoRef).into(img);
+                    Glide.with(getApplicationContext()).using(new FirebaseImageLoader()).load(photoRef).into(img);
                 } else {
                     /* Show a message that no photo. It will be clickable so he can upload one */
                     msg.setText("you don't have a photo");
