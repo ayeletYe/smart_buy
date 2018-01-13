@@ -24,12 +24,13 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView=inflater.inflate(R.layout.fragment_main,container,false);
+
+        /* Make all the button in this fragment clickable */
         TextView about = (TextView) myView.findViewById(R.id.aboutUs);
         TextView findUs = (TextView) myView.findViewById(R.id.findUs);
         TextView recipes = (TextView) myView.findViewById(R.id.recipes);
@@ -39,6 +40,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
         recipes.setOnClickListener(this);
         products.setOnClickListener(this);
 
+        /* Create Firebase Analytics */
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this.getActivity());
 
         return myView;
@@ -48,6 +50,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
     public void onClick(View v) {
         Intent intent = null;
 
+        /* Choose the activity to open according to clicked button */
         switch(v.getId()){
             case(R.id.aboutUs):
                 intent = new Intent("com.example.yaeli.smart_buy.aboutUsActivity");
@@ -68,7 +71,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
 
         if (intent != null) {
             /*
-             * Log event of content select
+             * Log event of content select to Firebase Analytics
              */
             Bundle bundle = new Bundle();
             bundle.putString(FirebaseAnalytics.Param.CONTENT, intent.getAction());

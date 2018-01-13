@@ -15,15 +15,18 @@ public class MainActivity extends  AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /* Make "signin" and "login" button clickable */
         Button loginBtn = (Button) findViewById(R.id.Login);
         Button signInBtn = (Button) findViewById(R.id.Signin);
         loginBtn.setOnClickListener(this);
         signInBtn.setOnClickListener(this);
 
-        FragmentManager fragmentManager=getFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        MainFragment mf=new MainFragment();
-        fragmentTransaction.add(R.id.fragment_container,mf);
+        /* Setup "Main" fragment */
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MainFragment mf = new MainFragment();
+        fragmentTransaction.add(R.id.fragment_container, mf);
         fragmentTransaction.commit();
     }
 
@@ -31,6 +34,7 @@ public class MainActivity extends  AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        /* Open activity depending on clicked button */
         switch(v.getId()){
             case(R.id.Signin):
                 Intent intent= new Intent("com.example.yaeli.smart_buy.signin");

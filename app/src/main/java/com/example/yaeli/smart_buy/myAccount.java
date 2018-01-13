@@ -21,41 +21,38 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class myAccount extends AppCompatActivity implements View.OnClickListener {
-    private TextView firstName;
-    private TextView lastName;
-    private TextView street;
-    private TextView city;
-    private TextView Email;
-    private ImageView img;
 
-    private StorageReference storage;
-
-    private String userId;
     private User user;
-
-    private TextView msg;
-    private TextView upload;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final String userId;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
-        firstName=(TextView) findViewById(R.id.name);
-        lastName=(TextView) findViewById(R.id.lastName);
-        street=(TextView) findViewById(R.id.street);
-        city=(TextView) findViewById(R.id.city);
-        Email=(TextView) findViewById(R.id.email);
-        img=(ImageView) findViewById(R.id.pic);
-        msg=(TextView) findViewById(R.id.msg);
-        upload=(TextView) findViewById(R.id.upload);
 
+        /* Get the text fields that will be filled later from DB */
+        final TextView firstName=(TextView) findViewById(R.id.name);
+        final TextView lastName=(TextView) findViewById(R.id.lastName);
+        final TextView street=(TextView) findViewById(R.id.street);
+        final TextView city=(TextView) findViewById(R.id.city);
+        final TextView Email=(TextView) findViewById(R.id.email);
+        final ImageView img=(ImageView) findViewById(R.id.pic);
+        final TextView msg=(TextView) findViewById(R.id.msg);
+        final TextView upload=(TextView) findViewById(R.id.upload);
+
+        /* Make upload message clickable */
         upload.setOnClickListener(this);
-        storage= FirebaseStorage.getInstance().getReference();
 
+        /* Get Firebase Storage */
+        final StorageReference storage = FirebaseStorage.getInstance().getReference();
+
+        /* Get the user ID from Firebase Auth */
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (fbUser != null) {
             userId = fbUser.getUid();
+        } else {
+            userId = null;
         }
 
         if (userId == null) {
@@ -64,10 +61,10 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
         }
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
         database.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                /* Convert node to "User" */
                 user = dataSnapshot.getValue(User.class);
 
                 if (user == null) {
@@ -82,9 +79,11 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
                 Email.setText("Email: " + user.getEmail());
 
                 if (user.isPhoto()) {
+                    /* Show user photo using Glide */
                     StorageReference photoRef = storage.child("Photos").child(userId).child("photo.jpg");
                     Glide.with(myAccount.this).using(new FirebaseImageLoader()).load(photoRef).into(img);
                 } else {
+                    /* Show a message that no photo. It will be clickable so he can upload one */
                     msg.setText("you don't have a photo");
                     upload.setText("Click here to upload");
                 }
@@ -100,6 +99,7 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
+        /* The click comes from the "upload" message */
         if (!user.isPhoto()) {
             Intent intent = new Intent("com.example.yaeli.smart_buy.Photo");
             startActivity(intent);

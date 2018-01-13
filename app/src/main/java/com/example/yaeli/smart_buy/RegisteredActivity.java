@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class RegisteredActivity extends AppCompatActivity implements View.OnClickListener{
-    private TextView hello;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +27,14 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
-        hello=(TextView) findViewById(R.id.hello);
-        Button logout = (Button) findViewById(R.id.logout);
 
+        /* Make "hello ..." message and "logout" button clickable */
+        final TextView hello=(TextView) findViewById(R.id.hello);
+        Button logout = (Button) findViewById(R.id.logout);
+        hello.setOnClickListener(this);
+        logout.setOnClickListener(this);
+
+        /* Get the user ID from Firebase Auth */
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (fbUser != null) {
             userId = fbUser.getUid();
@@ -41,10 +45,12 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
             return;
         }
 
+        /* Get current user from "users" table using "userId" */
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                /* Convert node to "User" */
                 User user = dataSnapshot.getValue(User.class);
 
                 if (user == null) {
@@ -52,7 +58,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                     return;
                 }
 
-                hello.setText("Hello "+user.getUserName());
+                hello.setText("Hello " + user.getUserName());
             }
 
             @Override
@@ -61,20 +67,18 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        FragmentManager fragmentManager=getFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        MainFragment mf=new MainFragment();
-        fragmentTransaction.add(R.id.fragment_container,mf);
+        /* Setup "Main" fragment */
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MainFragment mf = new MainFragment();
+        fragmentTransaction.add(R.id.fragment_container, mf);
         fragmentTransaction.commit();
-
-        hello.setOnClickListener(this);
-        logout.setOnClickListener(this);
-
     }
 
 
     @Override
     public void onClick(View v) {
+        /* Choose the correct activity to open according to clicked button */
         switch(v.getId()){
             case(R.id.hello):
                 Intent intent= new Intent("com.example.yaeli.smart_buy.myAccount");
@@ -82,13 +86,12 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case(R.id.logout):
+                /* Signout user from Firebase Auth */
                 FirebaseAuth.getInstance().signOut();
 
                 Intent intent1= new Intent("com.example.yaeli.smart_buy.MainActivity");
                 startActivity(intent1);
                 break;
         }
-
-
     }
 }

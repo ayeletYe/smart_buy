@@ -11,6 +11,7 @@ class User {
     private boolean photo;
 
     public User() {
+        /* Empty constructor is needed by Firebase Database */
     }
 
     public User(boolean isAdmin, String Email, String userName, String firstName, String lastName, String address, String city) {

@@ -32,34 +32,50 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button login = (Button) findViewById(R.id.login);
+
         email= (EditText) findViewById(R.id.Email);
         password=(EditText) findViewById(R.id.pass);
+
+        /* Setup message box on top of the screen */
         msg_login=(TextView) findViewById(R.id.msg);
         msg_login.setText("Please Login your account");
+
+        /* Make "login" button clickable */
+        Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(this);
+
+        /* Firebase Auth instance */
         firebaseAuth=FirebaseAuth.getInstance();
+
+        /* Firebase Database instance */
         databaseReference= FirebaseDatabase.getInstance().getReference();
     }
 
 
     @Override
     public void onClick(View v) {
-        final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
-        (firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()))
+        /* On click immediately show progress dialog */
+        final ProgressDialog progressDialog = ProgressDialog.show(loginActivity.this, "Please wait", "Checking Authentication...", true);
+
+        /* Check email and password with Firebase Auth */
+        firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        /* Hide progress dialog after authentication finished */
                         progressDialog.dismiss();
 
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
+                            /* Get the user ID of the successfully logged in user */
                             String userId = task.getResult().getUser().getUid();
 
                             Toast.makeText(loginActivity.this,"Successfully signed in",Toast.LENGTH_LONG).show();
 
+                            /* Check in DB using user ID what type of user is this; regular or manager */
                             databaseReference.child("users").child(userId).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
+                                    /* Convert node to "User" */
                                     User user = dataSnapshot.getValue(User.class);
 
                                     if (user == null) {
@@ -67,10 +83,10 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                                         return;
                                     }
 
+                                    /* Show different activity if manager */
                                     if (user.isAdmin()) {
                                         Intent intent = new Intent("com.example.yaeli.smart_buy.managerActivity");
                                         startActivity(intent);
-
                                     }
                                     else{
                                         Intent intent = new Intent("com.example.yaeli.smart_buy.RegisteredActivity");
@@ -85,9 +101,9 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
                         }
                         else{
+                            /* Show error message in box on top of the screen */
                             msg_login.setText("Incorrect user name or password");
                         }
-
                     }
                 });
 

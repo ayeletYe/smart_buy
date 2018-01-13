@@ -26,6 +26,8 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
+
+        /* Make button clickable */
         msg=(TextView) findViewById(R.id.msg);
         Button products = (Button) findViewById(R.id.products);
         Button recipes = (Button) findViewById(R.id.recipe);
@@ -36,6 +38,7 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
         msg.setOnClickListener(this);
         logout.setOnClickListener(this);
 
+        /* Get the user ID from Firebase Auth */
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (fbUser != null) {
             userId = fbUser.getUid();
@@ -46,10 +49,12 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
             return;
         }
 
+        /* Get current user from "users" table using "userId" */
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                /* Convert node to "User" */
                 User user = dataSnapshot.getValue(User.class);
 
                 if (user == null) {
@@ -72,8 +77,8 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         Intent intent = null;
 
+        /* Choose the correct activity to open according to clicked button */
         switch (v.getId()) {
-
             case (R.id.products):
                 intent = new Intent("com.example.yaeli.smart_buy.inStockProductsActivity");
                 break;
@@ -87,6 +92,7 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.logout:
+                /* Signout user from Firebase Auth */
                 FirebaseAuth.getInstance().signOut();
 
                 intent = new Intent("com.example.yaeli.smart_buy.MainActivity");

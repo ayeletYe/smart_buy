@@ -32,68 +32,81 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
     private EditText Email;
     private TextView msg;
 
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference mDatabase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
+
+        /* Get text fields from GUI */
+        userName = (EditText) findViewById(R.id.UserName);
+        password = (EditText) findViewById(R.id.password);
+        firstName = (EditText) findViewById(R.id.name);
+        lastName = (EditText) findViewById(R.id.lastName);
+        address = (EditText) findViewById(R.id.street);
+        city = (EditText) findViewById(R.id.city);
+        Email = (EditText) findViewById(R.id.Email);
+        msg = (TextView) findViewById(R.id.msg);
+
+        /* Make "next" button clickable */
         Button nextBtn = (Button) findViewById(R.id.next);
-        userName= (EditText) findViewById(R.id.UserName);
-        password= (EditText) findViewById(R.id.password);
-        firstName= (EditText) findViewById(R.id.name);
-        lastName= (EditText) findViewById(R.id.lastName);
-        address= (EditText) findViewById(R.id.street);
-        city= (EditText) findViewById(R.id.city);
-        Email= (EditText) findViewById(R.id.Email);
-        msg= (TextView) findViewById(R.id.msg);
         nextBtn.setOnClickListener(this);
 
-        firebaseAuth=FirebaseAuth.getInstance();
     }
-
-
 
     @Override
     public void onClick(View v) {
-        mDatabase= FirebaseDatabase.getInstance().getReference();
+        /* Get Firebase Auth reference */
+        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        /* Get Firebase Database reference */
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
         final String email = Email.getText().toString();
         final String pass = password.getText().toString();
+
+        /* Check email is not empty */
         if (email.length() == 0) {
             msg.setText("Invalid Email");
         }
-        if (pass.length() < 8) {
-            msg.setText("password must contain at least 4 characters");
+        /* Check password length */
+        else if (pass.length() < 8) {
+            msg.setText("password must contain at least 8 characters");
         }
-
+        /* Check other required fields */
+        else if ((firstName.getText().length() == 0) || (lastName.getText().length() == 0) || (city.getText().length() == 0) || (userName.getText().length() == 0)) {
+            msg.setText("check requires fields");
+        }
+        /* Proceed with signin */
         else {
-
-            if ((firstName.getText().length() == 0) || (lastName.getText().length() == 0) || (city.getText().length() == 0) || (userName.getText().length() == 0)) {
-                msg.setText("check requires fields");
+            /* Fill the non-required address field if it's empty */
+            if (address.getText().length() == 0) {
+                address.setText("*UNKNOWN*");
+                address.setTextColor(Color.RED);
             }
 
-            else {
-                if (address.getText().length() == 0) {
-                    address.setText("*UNKNOWN*");
-                    address.setTextColor(Color.RED);
-                }
-            }
-
+            /* Show progress dialog */
             final ProgressDialog progressDialog = ProgressDialog.show(signin.this, "Please wait", "Registering...", true);
+
+            /* Try to register to Firebase Auth using email and password */
             firebaseAuth.createUserWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
+                                /* Signin was successful */
                                 User user = new User(false, Email.getText().toString(), userName.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), city.getText().toString());
+                                /* Get userId from Firebase Auth */
                                 String userId = task.getResult().getUser().getUid();
+
+                                /* Save this user to Firebase Database using userId created by Firebase Auth */
                                 mDatabase.child("users").child(userId).setValue(user);
+
                                 Toast.makeText(signin.this, "Registered successfully", Toast.LENGTH_LONG).show();
+
+                                /* Open a user photo selection activity */
                                 Intent intent = new Intent("com.example.yaeli.smart_buy.Photo");
                                 startActivity(intent);
                             } else {
+                                /* Signin has failed */
                                 FirebaseAuthException e = (FirebaseAuthException) task.getException();
                                 String reason = "Unknown!";
 
@@ -101,12 +114,12 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                                     reason = e.getMessage();
                                 }
 
+                                /* Hide progress dialog and show a message with the failure message */
+                                progressDialog.dismiss();
                                 Toast.makeText(signin.this, "Failed Registration: " + reason, Toast.LENGTH_SHORT).show();
-                                progressDialog.hide();
                             }
                         }
                     });
-
         }
 
     }

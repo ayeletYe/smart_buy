@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +32,7 @@ import java.io.File;
 public class Photo extends AppCompatActivity implements View.OnClickListener{
     private static final int RESULT_LOAD_IMAGE=1;
     private static final int CAMERA_REQUEST=0;
+
     private ImageView image;
     private Uri pic_location=null;
     private String userId;
@@ -45,19 +48,26 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        image= (ImageView) findViewById(R.id.image);
+        image = (ImageView) findViewById(R.id.image);
+
+        /* Make buttons clickable */
         Button uploadBtn = (Button) findViewById(R.id.upload);
         Button submit = (Button) findViewById(R.id.submit);
         Button camera = (Button) findViewById(R.id.camera);
         uploadBtn.setOnClickListener(this);
         camera.setOnClickListener(this);
         submit.setOnClickListener(this);
+
         isPic=false;
 
-        //storage=FirebaseStorage.getInstance();
+        /* Firebase Storage reference */
         mStorage= FirebaseStorage.getInstance().getReference();
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        /* Firebase Databse reference */
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        /* Firebase Analytics reference */
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        /* Get the user ID from Firebase Auth */
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (fbUser != null) {
             userId = fbUser.getUid();
@@ -68,9 +78,11 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
             return;
         }
 
+        /* Get current user using user ID from "users" table */
         databaseReference.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                /* Convert node to "User" */
                 user = dataSnapshot.getValue(User.class);
             }
 
@@ -80,26 +92,20 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
             }
         });
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case(R.id.upload):
-                Intent galleryIntent= new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                //Intent galleryIntent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-//                StorageReference filepath= mStorage.child("Photos").child(userName);
-//                imageFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"photo.jpg");
-//                pic_location=Uri.fromFile(imageFile);
-//                galleryIntent.putExtra(MediaStore.EXTRA_OUTPUT,pic_location);
+                /* Open Android default image selection from gallery activity */
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 break;
 
             case(R.id.camera):
+                /* Open Android default camera activity */
                 Intent cameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //Intent cameraIntent=new Intent("adnroid.media.action.IMAGE_CAPTURE");
                 File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "photo.jpg");
                 pic_location= FileProvider.getUriForFile(this,getApplicationContext().getPackageName()+".fileprovider" , imageFile);
                 pic_location=Uri.fromFile(imageFile);
@@ -109,37 +115,46 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
 
             case(R.id.submit):
                 if(pic_location!=null && isPic){
-                    StorageReference filepath = mStorage.child("Photos").child(userId).child("photo.jpg");
+                    final StorageReference filepath = mStorage.child("Photos").child(userId).child("photo.jpg");
 
-                    filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    filepath.putFile(pic_location)
+                    /* Successful upload */
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            /* Show success message */
                             Toast.makeText(Photo.this, "Upload done", Toast.LENGTH_LONG).show();
 
+                            /* Save in DB that now the user has a photo */
                             user.setPhoto(true);
                             databaseReference.child("users").child(userId).setValue(user);
+
+                            /*
+                             * Log event of user added photo
+                             */
+                            Bundle bundle = new Bundle();
+                            bundle.putString("username", user.getUserName());
+                            bundle.putString("url", filepath.getPath());
+                            mFirebaseAnalytics.logEvent("photo_added", bundle);
+                        }
+                    })
+                    /* Failure on upload */
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Photo.this, "Failed to upload!", Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-                    /*
-                     * Log event of user added photo
-                     */
-                    Bundle bundle = new Bundle();
-//                    bundle.putString("username", userName);
-                    bundle.putString("url", filepath.getPath());
-                    mFirebaseAnalytics.logEvent("photo_added", bundle);
                 }
                 else{
                     Toast.makeText(Photo.this, "No picture was selected", Toast.LENGTH_SHORT).show();
                 }
 
+                /* Go to login activity */
                 Intent intent=new Intent("com.example.yaeli.smart_buy.loginActivity");
                 startActivity(intent);
                 break;
-
         }
-
     }
 
     @Override
@@ -147,71 +162,16 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            /* Image loaded from gallery */
             pic_location = data.getData();
-            isPic=true;
-            //StorageReference filepath = mStorage.child("Photos").child(pic_location.getLastPathSegment());
-           // mProgress.setMessage("Uploading image...");
-            //mProgress.show();
+            isPic = true;
             image.setImageURI(pic_location);
-
-
-
-
-//            filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    Toast.makeText(Photo.this, "Upload done", Toast.LENGTH_LONG).show();
-//                }
-//            });
-
-//            pic_location = data.getData();
-//            String str=getContentResolver().getType(pic_location);
-//            if (str.equals("image/jpg") || str.equals("image/jpeg") || str.equals("image/png")) {
-//                image.setImageURI(pic_location);
-//                Toast.makeText(this, "The file was saved at " + imageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
-//            }
-//            else {
-//                pic_location=null;
-//                Toast.makeText(this, "File type should be jpeg, jpg or png ", Toast.LENGTH_LONG).show();
-//            }
         }
-        else if (requestCode == CAMERA_REQUEST) {
-
-            if (resultCode == RESULT_OK) {
-                isPic=true;
-
-                //Uri uri = data.getData();
-                //Bitmap photo = (Bitmap) data.getExtras().get("data");
-                //StorageReference filepath = mStorage.child("Photos").child(userName).child("photo.jpg");
-                //mProgress.setMessage("Uploading image...");
-                //mProgress.show();
-                image.setImageURI(pic_location);
-
-//                filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        mProgress.dismiss();
-//                        Toast.makeText(Photo.this, "Successfuly uploaded", Toast.LENGTH_LONG).show();
-//                    }
-//                });
-            }
-////            switch(resultCode){
-////                case(RESULT_OK):
-////                    if (imageFile.exists()) {
-////                        image.setImageURI(pic_location);
-////                        Toast.makeText(this, "The file was saved at " + imageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
-////                    }
-////                    else {
-////                        Toast.makeText(this, "There was a problem saving the file ", Toast.LENGTH_LONG).show();
-////                    }
-////                    break;
-////
-////                case(RESULT_CANCELED):
-////                    break;
-////            }
+        else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            /* Image loaded from camera */
+            isPic = true;
+            image.setImageURI(pic_location);
         }
-
-
     }
 
 }

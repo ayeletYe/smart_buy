@@ -24,17 +24,17 @@ public class signin_btnFragment extends android.app.Fragment implements View.OnC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView=inflater.inflate(R.layout.fragment_signin_btn,container,false);
+
+        /* Make "signin" clickable */
         TextView signin_btn = (TextView) myView.findViewById(R.id.sign_btn);
         signin_btn.setOnClickListener(this);
 
         return myView;
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_signin_btn, container, false);
-
     }
 
     @Override
     public void onClick(View v) {
+        /* On click open the "signin" activity */
         Intent intent=new Intent("com.example.yaeli.smart_buy.signin");
         startActivity(intent);
     }
