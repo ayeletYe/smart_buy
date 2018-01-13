@@ -35,13 +35,13 @@
     </fragment>
 
     <Button
-        android:text="products in stock"
+        android:id="@+id/products"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:id="@+id/products"
-        android:layout_below="@+id/users"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/logout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:text="products in stock" />
 
     <Button
         android:text="add recipe"
@@ -66,5 +66,17 @@
         android:textStyle="normal|bold"
         android:typeface="normal" />
 
+    <Button
+        android:text="log out"
+        android:id="@+id/logout"
+        android:textSize="15sp"
+        android:background="@color/colorPrimary"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:layout_centerInParent="true"
+        android:fontFamily="sans-serif-condensed" />
 
 </RelativeLayout>

@@ -29,10 +29,12 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
         msg=(TextView) findViewById(R.id.msg);
         Button products = (Button) findViewById(R.id.products);
         Button recipes = (Button) findViewById(R.id.recipe);
+        Button logout = (Button) findViewById(R.id.logout);
 
         products.setOnClickListener(this);
         recipes.setOnClickListener(this);
         msg.setOnClickListener(this);
+        logout.setOnClickListener(this);
 
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (fbUser != null) {
@@ -68,24 +70,31 @@ public class managerActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        Intent intent = null;
 
-            case(R.id.products):
-                Intent intent=new Intent("com.example.yaeli.smart_buy.inStockProductsActivity");
-                startActivity(intent);
+        switch (v.getId()) {
+
+            case (R.id.products):
+                intent = new Intent("com.example.yaeli.smart_buy.inStockProductsActivity");
                 break;
 
-            case(R.id.recipe):
-                Intent intent1=new Intent("com.example.yaeli.smart_buy.addRecipeActivity");
-                startActivity(intent1);
+            case (R.id.recipe):
+                intent = new Intent("com.example.yaeli.smart_buy.addRecipeActivity");
                 break;
 
-            case(R.id.msg):
-                Intent intent2=new Intent("com.example.yaeli.smart_buy.myAccount");
-                startActivity(intent2);
+            case (R.id.msg):
+                intent = new Intent("com.example.yaeli.smart_buy.myAccount");
+                break;
+
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+
+                intent = new Intent("com.example.yaeli.smart_buy.MainActivity");
+                break;
 
         }
 
-
+        if (intent != null)
+            startActivity(intent);
     }
 }
