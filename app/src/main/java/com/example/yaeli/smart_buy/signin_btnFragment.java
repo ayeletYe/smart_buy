@@ -14,7 +14,6 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class signin_btnFragment extends android.app.Fragment implements View.OnClickListener {
-    TextView signin_btn;
 
     public signin_btnFragment() {
         // Required empty public constructor
@@ -25,7 +24,7 @@ public class signin_btnFragment extends android.app.Fragment implements View.OnC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView=inflater.inflate(R.layout.fragment_signin_btn,container,false);
-        signin_btn= (TextView) myView.findViewById(R.id.sign_btn);
+        TextView signin_btn = (TextView) myView.findViewById(R.id.sign_btn);
         signin_btn.setOnClickListener(this);
 
         return myView;

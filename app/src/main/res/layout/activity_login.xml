@@ -45,7 +45,7 @@
         android:ems="10"
         android:id="@+id/Email"
         android:hint="Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="19dp"
         android:layout_below="@+id/signin_btnFragment"
         android:layout_alignParentLeft="true"

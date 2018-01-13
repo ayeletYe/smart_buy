@@ -17,10 +17,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
  * A simple {@link Fragment} subclass.
  */
 public class MainFragment extends android.app.Fragment implements View.OnClickListener {
-    TextView about;
-    TextView findUs;
-    TextView recipes;
-    Button products;
 
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -34,10 +30,10 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView=inflater.inflate(R.layout.fragment_main,container,false);
-        about= (TextView) myView.findViewById(R.id.aboutUs);
-        findUs=(TextView) myView.findViewById(R.id.findUs);
-        recipes= (TextView) myView.findViewById(R.id.recipes);
-        products=(Button) myView.findViewById(R.id.compare);
+        TextView about = (TextView) myView.findViewById(R.id.aboutUs);
+        TextView findUs = (TextView) myView.findViewById(R.id.findUs);
+        TextView recipes = (TextView) myView.findViewById(R.id.recipes);
+        Button products = (Button) myView.findViewById(R.id.compare);
         about.setOnClickListener(this);
         findUs.setOnClickListener(this);
         recipes.setOnClickListener(this);
@@ -51,7 +47,6 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
     @Override
     public void onClick(View v) {
         Intent intent = null;
-        String content;
 
         switch(v.getId()){
             case(R.id.aboutUs):
@@ -72,7 +67,7 @@ public class MainFragment extends android.app.Fragment implements View.OnClickLi
         }
 
         if (intent != null) {
-            /**
+            /*
              * Log event of content select
              */
             Bundle bundle = new Bundle();

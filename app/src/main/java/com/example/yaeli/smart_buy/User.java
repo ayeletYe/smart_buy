@@ -1,10 +1,6 @@
 package com.example.yaeli.smart_buy;
 
-/**
- * Created by yaeli on 30/11/2017.
- */
-
-public class User {
+class User {
     private String firstName;
     private String lastName;
     private String userName;

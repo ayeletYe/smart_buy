@@ -1,19 +1,12 @@
 package com.example.yaeli.smart_buy;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,30 +25,18 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URI;
 import java.io.File;
 
 public class Photo extends AppCompatActivity implements View.OnClickListener{
     private static final int RESULT_LOAD_IMAGE=1;
     private static final int CAMERA_REQUEST=0;
-    ImageView image;
-    Button uploadBtn;
-    Button submit;
-    Button camera;
-    private File imageFile;
-    public Uri pic_location=null;
+    private ImageView image;
+    private Uri pic_location=null;
     private String userId;
     private User user;
-    private ProgressDialog mProgress;
     private StorageReference mStorage;
     private DatabaseReference databaseReference;
-    boolean isPic;
+    private boolean isPic;
 
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -64,9 +46,9 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_photo);
 
         image= (ImageView) findViewById(R.id.image);
-        uploadBtn= (Button) findViewById(R.id.upload);
-        submit= (Button) findViewById(R.id.submit);
-        camera=(Button) findViewById(R.id.camera);
+        Button uploadBtn = (Button) findViewById(R.id.upload);
+        Button submit = (Button) findViewById(R.id.submit);
+        Button camera = (Button) findViewById(R.id.camera);
         uploadBtn.setOnClickListener(this);
         camera.setOnClickListener(this);
         submit.setOnClickListener(this);
@@ -75,8 +57,16 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         //storage=FirebaseStorage.getInstance();
         mStorage= FirebaseStorage.getInstance().getReference();
         databaseReference= FirebaseDatabase.getInstance().getReference();
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        mProgress=new ProgressDialog(this);
+
+        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbUser != null) {
+            userId = fbUser.getUid();
+        }
+
+        if (userId == null) {
+            Toast.makeText(this, "Failed to get User ID!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         databaseReference.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -110,15 +100,15 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
             case(R.id.camera):
                 Intent cameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 //Intent cameraIntent=new Intent("adnroid.media.action.IMAGE_CAPTURE");
-                imageFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"photo.jpg");
-                pic_location= FileProvider.getUriForFile(this,getApplicationContext().getPackageName()+".fileprovider" ,imageFile);
+                File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "photo.jpg");
+                pic_location= FileProvider.getUriForFile(this,getApplicationContext().getPackageName()+".fileprovider" , imageFile);
                 pic_location=Uri.fromFile(imageFile);
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,pic_location);
                 startActivityForResult(cameraIntent,CAMERA_REQUEST);
                 break;
 
             case(R.id.submit):
-                if(pic_location!=null && isPic==true){
+                if(pic_location!=null && isPic){
                     StorageReference filepath = mStorage.child("Photos").child(userId).child("photo.jpg");
 
                     filepath.putFile(pic_location).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -132,7 +122,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
                     });
 
 
-                    /**
+                    /*
                      * Log event of user added photo
                      */
                     Bundle bundle = new Bundle();
@@ -187,7 +177,7 @@ public class Photo extends AppCompatActivity implements View.OnClickListener{
         }
         else if (requestCode == CAMERA_REQUEST) {
 
-            if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 isPic=true;
 
                 //Uri uri = data.getData();

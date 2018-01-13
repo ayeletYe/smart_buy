@@ -70,7 +70,6 @@
         <activity
             android:name=".Photo"
             android:label="SIGN IN">
-            >
             <intent-filter>
                 <action android:name="com.example.yaeli.smart_buy.Photo" />
 
@@ -80,7 +79,6 @@
         <activity
             android:name=".RegisteredActivity"
             android:label="SMART BUY">
-            >
             <intent-filter>
                 <action android:name="com.example.yaeli.smart_buy.RegisteredActivity" />
 

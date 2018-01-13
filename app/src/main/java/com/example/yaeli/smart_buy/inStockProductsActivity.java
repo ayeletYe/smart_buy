@@ -15,21 +15,19 @@ import java.util.ArrayList;
 
 public class inStockProductsActivity extends AppCompatActivity {
 
-    private DatabaseReference databaseReference;
-    private ListView mListView;
     private ArrayList<String> mProductsInStock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_stock_products);
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         mProductsInStock = new ArrayList<>();
 
-        mListView = (ListView) findViewById(R.id.listViewStock);
+        ListView mListView = (ListView) findViewById(R.id.listViewStock);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mProductsInStock);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mProductsInStock);
         mListView.setAdapter(arrayAdapter);
 
         final String[] featuresEng ={"name","quantity"};

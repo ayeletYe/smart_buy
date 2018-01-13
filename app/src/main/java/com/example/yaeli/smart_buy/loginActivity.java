@@ -1,7 +1,5 @@
 package com.example.yaeli.smart_buy;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,19 +22,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class loginActivity extends AppCompatActivity implements View.OnClickListener{
-    private static Button login;
-    private static EditText email;
-    private static EditText password;
-    public static TextView msg_login;
+    private EditText email;
+    private EditText password;
+    private TextView msg_login;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    //boolean isAdmin=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        login=(Button) findViewById(R.id.login);
+        Button login = (Button) findViewById(R.id.login);
         email= (EditText) findViewById(R.id.Email);
         password=(EditText) findViewById(R.id.pass);
         msg_login=(TextView) findViewById(R.id.msg);
@@ -49,8 +45,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        FragmentManager fragmentManager=getFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         final ProgressDialog progressDialog= ProgressDialog.show(loginActivity.this,"Please wait","Checking Authentication...",true);
         (firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -61,12 +55,17 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful()){
                             String userId = task.getResult().getUser().getUid();
 
-                            Toast.makeText(loginActivity.this,"Successfully signed in",Toast.LENGTH_LONG);
+                            Toast.makeText(loginActivity.this,"Successfully signed in",Toast.LENGTH_LONG).show();
 
                             databaseReference.child("users").child(userId).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     User user = dataSnapshot.getValue(User.class);
+
+                                    if (user == null) {
+                                        Toast.makeText(loginActivity.this, "Failed to get user!", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
 
                                     if (user.isAdmin()) {
                                         Intent intent = new Intent("com.example.yaeli.smart_buy.managerActivity");
@@ -86,9 +85,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
                         }
                         else{
-                            //Toast.makeText(loginActivity.this,"Failed to signed in",Toast.LENGTH_LONG);
-
-                            System.out.println(task.getException());
                             msg_login.setText("Incorrect user name or password");
                         }
 

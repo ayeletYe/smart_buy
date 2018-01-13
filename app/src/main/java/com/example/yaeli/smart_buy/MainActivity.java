@@ -1,7 +1,6 @@
 package com.example.yaeli.smart_buy;
 
 import android.content.Intent;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,23 +10,21 @@ import android.widget.Button;
 
 
 public class MainActivity extends  AppCompatActivity implements View.OnClickListener {
-    private static Button loginBtn;
-    private static Button signInBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginBtn= (Button) findViewById(R.id.Login);
-        signInBtn= (Button) findViewById(R.id.Signin);
+        Button loginBtn = (Button) findViewById(R.id.Login);
+        Button signInBtn = (Button) findViewById(R.id.Signin);
         loginBtn.setOnClickListener(this);
         signInBtn.setOnClickListener(this);
 
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        Fragment fragment;
         MainFragment mf=new MainFragment();
         fragmentTransaction.add(R.id.fragment_container,mf);
-
+        fragmentTransaction.commit();
     }
 
 

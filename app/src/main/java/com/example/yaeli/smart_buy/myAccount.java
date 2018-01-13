@@ -1,7 +1,6 @@
 package com.example.yaeli.smart_buy;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,24 +20,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
-
 public class myAccount extends AppCompatActivity implements View.OnClickListener {
-    TextView firstName;
-    TextView lastName;
-    TextView street;
-    TextView city;
-    TextView Email;
-    ImageView img;
+    private TextView firstName;
+    private TextView lastName;
+    private TextView street;
+    private TextView city;
+    private TextView Email;
+    private ImageView img;
 
-    DatabaseReference database;
-    StorageReference storage;
+    private StorageReference storage;
 
-    String userId;
-    User user;
+    private String userId;
+    private User user;
 
-    TextView msg;
-    TextView upload;
+    private TextView msg;
+    private TextView upload;
 
 
     @Override
@@ -55,13 +52,28 @@ public class myAccount extends AppCompatActivity implements View.OnClickListener
 
         upload.setOnClickListener(this);
         storage= FirebaseStorage.getInstance().getReference();
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        database=FirebaseDatabase.getInstance().getReference();
+
+        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbUser != null) {
+            userId = fbUser.getUid();
+        }
+
+        if (userId == null) {
+            Toast.makeText(this, "Failed to get User ID!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         database.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 user = dataSnapshot.getValue(User.class);
+
+                if (user == null) {
+                    Toast.makeText(myAccount.this, "Failed to get user!", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 firstName.setText("First Name: " + user.getFirstName());
                 lastName.setText("Last Name: " + user.getLastName());

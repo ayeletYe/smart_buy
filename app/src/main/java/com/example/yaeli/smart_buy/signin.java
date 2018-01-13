@@ -3,11 +3,9 @@ package com.example.yaeli.smart_buy;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,34 +17,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.lang.String;
 
 public class signin extends AppCompatActivity implements View.OnClickListener{
-    private static EditText userName;
-    private static EditText password;
-    private static EditText firstName;
-    private static EditText lastName;
-    private static EditText address;
-    private static EditText city;
-    private static EditText Email;
-    private static TextView msg;
-    public boolean userExist;
+    private EditText userName;
+    private EditText password;
+    private EditText firstName;
+    private EditText lastName;
+    private EditText address;
+    private EditText city;
+    private EditText Email;
+    private TextView msg;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference mDatabase;
-    private static Button nextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-        nextBtn= (Button) findViewById(R.id.next);
+        Button nextBtn = (Button) findViewById(R.id.next);
         userName= (EditText) findViewById(R.id.UserName);
         password= (EditText) findViewById(R.id.password);
         firstName= (EditText) findViewById(R.id.name);
@@ -58,9 +51,6 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
         nextBtn.setOnClickListener(this);
 
         firebaseAuth=FirebaseAuth.getInstance();
-
-
-
     }
 
 
@@ -68,7 +58,6 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         mDatabase= FirebaseDatabase.getInstance().getReference();
-        DatabaseReference ref;
         final String email = Email.getText().toString();
         final String pass = password.getText().toString();
         if (email.length() == 0) {
@@ -106,9 +95,14 @@ public class signin extends AppCompatActivity implements View.OnClickListener{
                                 startActivity(intent);
                             } else {
                                 FirebaseAuthException e = (FirebaseAuthException) task.getException();
-                                Toast.makeText(signin.this, "Failed Registration: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                String reason = "Unknown!";
+
+                                if (e != null) {
+                                    reason = e.getMessage();
+                                }
+
+                                Toast.makeText(signin.this, "Failed Registration: " + reason, Toast.LENGTH_SHORT).show();
                                 progressDialog.hide();
-                                return;
                             }
                         }
                     });

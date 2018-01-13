@@ -7,40 +7,50 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
 public class RegisteredActivity extends AppCompatActivity implements View.OnClickListener{
-    private static TextView hello;
-    private static Spinner spinner;
-    private static Button logout;
-    private DatabaseReference mDatabase;
-    String userId;
+    private TextView hello;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String userId = null;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
         hello=(TextView) findViewById(R.id.hello);
-        logout=(Button) findViewById(R.id.logout);
+        Button logout = (Button) findViewById(R.id.logout);
 
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbUser != null) {
+            userId = fbUser.getUid();
+        }
 
-        mDatabase= FirebaseDatabase.getInstance().getReference();
+        if (userId == null) {
+            Toast.makeText(this, "Failed to get User ID!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+
+                if (user == null) {
+                    Toast.makeText(RegisteredActivity.this, "Failed to get user!", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 hello.setText("Hello "+user.getUserName());
             }
@@ -55,6 +65,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         MainFragment mf=new MainFragment();
         fragmentTransaction.add(R.id.fragment_container,mf);
+        fragmentTransaction.commit();
 
         hello.setOnClickListener(this);
         logout.setOnClickListener(this);
