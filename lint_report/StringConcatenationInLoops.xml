@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/inStockProductsActivity.java</file>
+    <line>47</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="method" FQNAME="com.example.yaeli.smart_buy.inStockProductsActivity$1 void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot)" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">String concatenation in loop</problem_class>
+    <description>String concatenation &lt;code&gt;+=&lt;/code&gt; in loop #loc</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/ProductsActivity.java</file>
+    <line>47</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="method" FQNAME="com.example.yaeli.smart_buy.ProductsActivity$1 void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot)" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">String concatenation in loop</problem_class>
+    <description>String concatenation &lt;code&gt;+=&lt;/code&gt; in loop #loc</description>
+  </problem>
+</problems>
+

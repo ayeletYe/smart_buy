@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml</file>
+    <line>7</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'apiid'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml</file>
+    <line>7</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Bcom'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml</file>
+    <line>19</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'frbq'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java</file>
+    <line>41</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java</file>
+    <line>95</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Signout'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java</file>
+    <line>95</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/managerActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java</file>
+    <line>21</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java</file>
+    <line>43</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java</file>
+    <line>74</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MainFragment.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java</file>
+    <line>37</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java</file>
+    <line>89</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Signout'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java</file>
+    <line>89</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/RegisteredActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/User.java</file>
+    <line>14</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/User.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/myAccount.java</file>
+    <line>47</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/myAccount.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/myAccount.java</file>
+    <line>50</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/myAccount.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>58</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>60</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>89</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>97</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>100</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java</file>
+    <line>100</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/signin.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java</file>
+    <line>47</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java</file>
+    <line>50</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java</file>
+    <line>60</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/loginActivity.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>44</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>63</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>65</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>65</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Databse'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>67</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>70</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java</file>
+    <line>110</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Photo.java" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'fileprovider'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_my_account.xml</file>
+    <line>16</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_my_account.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'lastname'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/res/xml/filepaths.xml</file>
+    <line>2</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/xml/filepaths.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'mediaimages'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml</file>
+    <line>22</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'autofocus'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml</file>
+    <line>109</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'fileprovider'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml</file>
+    <line>114</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'filepaths'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>4</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>4</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>4</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'firebaseio'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>6</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>6</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'appspot'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'mobilesdk'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'eaaf'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>18</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'cagv'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>18</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'ibotb'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>18</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'googleusercontent'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>24</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'frbq'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/google-services.json</file>
+    <line>31</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/google-services.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'appinvite'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>6</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'saban'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>8</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'danieladmin'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>13</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'yael'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>15</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'yael'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>16</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'pesso'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>52</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'crbohydrates'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>102</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'elad'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>104</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'saban'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>113</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'yael'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>115</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'haneveem'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>116</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'petah'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>116</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'tikva'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>117</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'yael'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/smartbuy-3e990-export.json</file>
+    <line>118</line>
+    <module>smart_buy</module>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/smartbuy-3e990-export.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'pesso'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>3</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Bgkqhki'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Kgwgg'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Eajokobun'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Lkzm'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Ggzg'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'hzca'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Urpu'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Trlik'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Btutc'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'FLFZ'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Lzur'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Kiwjb'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'TWQS'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'UALND'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Vhoen'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Wwkp'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'ldbrcl'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'FVUNI'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'LHHRYOS'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'MBAAE'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Rdgb'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Kfbw'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Szrbsl'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Iwui'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'vfjj'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'GDQL'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Hxchu'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Qufa'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Xvqc'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'NVCO'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Rusehha'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Tmwj'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Lfro'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'AUCPQK'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'keqxx'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'TZFAJ'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'DVZW'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Uizx'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Tlaqkre'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Wqjn'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'DQTQ'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Wzkag'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'LMRK'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'fnsj'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Gupg'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Owbt'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Xvyanjp'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Hidy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Hgwww'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Gxkwxz'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'GBAJ'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Lgvh'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Kxgnkn'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'CHUJ'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Phahu'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Iort'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'Lydsa'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'firebase'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'adminsdk'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'jgaa'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json</file>
+    <line>11</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/smartbuy-adminsdk.json" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'gserviceaccount'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>33</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'smartbuy'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>33</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+    <description>Typo: In word 'adminsdk'</description>
+  </problem>
+</problems>
+

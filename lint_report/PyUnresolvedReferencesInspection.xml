@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>1</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>No module named sys</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>2</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>No module named firebase_admin</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>3</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'firebase_admin'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>3</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'credentials'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>4</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'firebase_admin'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>4</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'db'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'firebase_admin'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>5</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'auth'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>21</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'len'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>26</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'len'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>28</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'len'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>46</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'str'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>47</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'str'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>60</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'len'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>68</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'Exception'</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/admin/users.py</file>
+    <line>96</line>
+    <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/admin/users.py" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved references</problem_class>
+    <description>Unresolved reference 'Exception'</description>
+  </problem>
+</problems>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Recipe.java</file>
+    <line>8</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="field" FQNAME="com.example.yaeli.smart_buy.Recipe name" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field can be local</problem_class>
+    <description>Field can be converted to a local variable</description>
+  </problem>
+</problems>
+

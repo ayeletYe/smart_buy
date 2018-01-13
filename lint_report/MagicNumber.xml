@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MapsActivity.java</file>
+    <line>39</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="method" FQNAME="com.example.yaeli.smart_buy.MapsActivity void onMapReady(com.google.android.gms.maps.GoogleMap googleMap)" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Magic number</problem_class>
+    <description>Magic number &lt;code&gt;32.074318&lt;/code&gt; #loc</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/MapsActivity.java</file>
+    <line>39</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="method" FQNAME="com.example.yaeli.smart_buy.MapsActivity void onMapReady(com.google.android.gms.maps.GoogleMap googleMap)" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Magic number</problem_class>
+    <description>Magic number &lt;code&gt;34.898837&lt;/code&gt; #loc</description>
+  </problem>
+</problems>
+

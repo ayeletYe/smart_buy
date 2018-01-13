@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Recipe.java</file>
+    <line>7</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="field" FQNAME="com.example.yaeli.smart_buy.Recipe recipe" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Mismatched query and update of collection</problem_class>
+    <description>Contents of collection &lt;code&gt;recipe&lt;/code&gt; are updated, but never queried #loc</description>
+  </problem>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/Recipes.java</file>
+    <line>6</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="field" FQNAME="com.example.yaeli.smart_buy.Recipes recipes" />
+    <problem_class severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Mismatched query and update of collection</problem_class>
+    <description>Contents of collection &lt;code&gt;recipes&lt;/code&gt; are updated, but never queried #loc</description>
+  </problem>
+</problems>
+

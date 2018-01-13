@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+  <problem>
+    <file>file://$PROJECT_DIR$/app/src/main/java/com/example/yaeli/smart_buy/User.java</file>
+    <line>17</line>
+    <module>app</module>
+    <package>com.example.yaeli.smart_buy</package>
+    <entry_point TYPE="method" FQNAME="com.example.yaeli.smart_buy.User User(boolean isAdmin, java.lang.String Email, java.lang.String userName, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city)" />
+    <problem_class severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Actual method parameter is the same constant</problem_class>
+    <hints>
+      <hint value="isAdmin false" />
+    </hints>
+    <description>Actual value of parameter '&lt;code&gt;isAdmin&lt;/code&gt;' is always '&lt;code&gt;false&lt;/code&gt;'</description>
+  </problem>
+</problems>
+
