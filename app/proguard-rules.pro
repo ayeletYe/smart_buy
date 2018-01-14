@@ -15,3 +15,10 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# Ignore warnings on classes related to testing, otherwise we can't generate APK
+# Solution from: https://stackoverflow.com/a/13216729
+-dontwarn org.mockito.**
+-dontwarn android.test.**
+-dontwarn junit.framework.**
+-dontwarn org.hamcrest.**
