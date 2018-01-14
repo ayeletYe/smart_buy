@@ -54,7 +54,7 @@ public class ManagerLoginUIAutomatorTest {
         /* Click on the "LOGIN" */
         UiObject2 login2Button = waitForObject(By.text("LOGIN"));
         login2Button.click();
-        /* Now we should be in log-in activity */
+        /* Now we should be in manager activity */
 
         /* Make sure we can find "Hello Manager" */
         waitForObject(By.textStartsWith("Hello Manager"));
@@ -71,7 +71,7 @@ public class ManagerLoginUIAutomatorTest {
 
     private UiObject2 waitForObject(BySelector selector) throws InterruptedException {
         UiObject2 object = null;
-        int timeout = 10000;
+        int timeout = 30000;
         int delay = 200;
         long time = System.currentTimeMillis();
         while (object == null) {
